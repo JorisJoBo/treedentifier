@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/JorisJoBo/treedentifier.svg?branch=master)](https://travis-ci.org/JorisJoBo/treedentifier)
 [![HitCount](http://hits.dwyl.io/JorisJoBo/treedentifier.svg)](http://hits.dwyl.io/JorisJoBo/treedentifier)
 
 # Treedentifier
