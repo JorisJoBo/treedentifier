@@ -3,7 +3,7 @@
     "no-empty-function": "ERROR",
     "no-mixed-spaces-and-tabs": "ERROR",
     "indent": ["error", 4],
-    "max-len": ["error", { "code": 80 }],
+    "max-len": ["warn", { "code": 80 }],
     "no-duplicate-imports": "ERROR",
     "sort-imports": "ERROR",
     "no-irregular-whitespace": "ERROR",
