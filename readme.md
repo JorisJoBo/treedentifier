@@ -1,3 +1,5 @@
+[![HitCount](http://hits.dwyl.io/JorisJoBo/treedentifier.svg)](http://hits.dwyl.io/JorisJoBo/treedentifier)
+
 # Treedentifier
 This project will be about an AI solution which will be capable of recognizing
 tree species. The solution will learn what the characteristics of a specific specie
