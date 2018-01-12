@@ -1,7 +1,7 @@
 import numpy as np
 
 # load data:
-trees = np.loadtxt(open(datafile, 'rb'), dtype=str, delimiter=';')
+trees = np.loadtxt(open("forest_filter_result.csv", 'rb'), dtype=str, delimiter=';')
 
 # filter out the plot id and coordinates
 raw_polys = []
