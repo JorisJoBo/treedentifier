@@ -1,3 +1,5 @@
+import numpy as np
+
 # load data:
 trees = np.loadtxt(open(datafile, 'rb'), dtype=str, delimiter=';')
 
