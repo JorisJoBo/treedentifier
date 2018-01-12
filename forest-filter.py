@@ -1,4 +1,4 @@
-import numpy as np
+#  Filter the Forest
 
 with open('joined_db2.csv') as f:
     forestEntries = []
