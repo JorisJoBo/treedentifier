@@ -4,6 +4,8 @@ Filters the RD-triangle coordinates from WKT to a min/max-x/y grid.
 Call from commandline with the name of the file that is to be converted
 as argument. This file should have a polygonID in the 2nd column (index 1)
 and the actual WKT in the 6th column (index 5).
+Returns 2 .csv files, one containing the polygon Id's and one without (2nd one
+to be used in LAStools)
 """
 
 import numpy as np
