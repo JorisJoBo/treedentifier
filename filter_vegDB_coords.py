@@ -30,7 +30,7 @@ for line in polys:
     X = []
     Y = []
     polyID = line[0]
-    allCoords = line[1][9:-2]
+    allCoords = line[1][11:-2]
     coords = allCoords.split(',')
     for coord in coords:
         x, y = coord.split(' ')
