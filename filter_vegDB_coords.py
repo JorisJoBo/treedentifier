@@ -1,7 +1,17 @@
+"""
+Filters the RD-triangle coordinates from WKT to a min/max-x/y grid.
+
+Call from commandline with the name of the file that is to be converted
+as argument. This file should have a polygonID in the 2nd column (index 1)
+and the actual WKT in the 6th column (index 5).
+"""
+
 import numpy as np
+import sys
 
 # load data:
-trees = np.loadtxt(open("forest_filter_result.csv", 'rb'), dtype=str, delimiter=';')
+filename = sys.argv[1]
+trees = np.loadtxt(open(filename, 'rb'), dtype=str, delimiter=';')
 
 # filter out the plot id and coordinates
 raw_polys = []
