@@ -22,18 +22,18 @@ for line in trees:
     raw_polys.append([line[1], line[5]])
 for line in raw_polys:
     if line not in polys:
-        polys.append(l)
+        polys.append(line)
 
 # extract the coordinates from the plot string
 plots = []
 for line in polys:
     X = []
     Y = []
-    polyID = l[0]
-    allCoords = l[1][9:-2]
+    polyID = line[0]
+    allCoords = line[1][9:-2]
     coords = allCoords.split(',')
     for coord in coords:
-        x, y = c.split(' ')
+        x, y = coord.split(' ')
         X.append(x)
         Y.append(y)
     plots.append([polyID, min(X), min(Y), max(X), max(Y)])
