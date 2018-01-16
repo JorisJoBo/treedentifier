@@ -4,7 +4,7 @@ import operator
 with open('forest_filter_result.csv') as f:
     with open('dominant_trees.csv', 'a') as result_file:
         convertedf = csv.reader(f, delimiter=';')
-        sortedf = sorted(convertedf, key=operator.itemgetter(5), reverse=True)
+        sortedf = sorted(convertedf, key=operator.itemgetter(1), reverse=False)
         current_polygon = ''
         dominant_tree = ''
         dominant_tree_ratio = 0
