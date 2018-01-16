@@ -29,7 +29,7 @@ plots = []
 for line in polys:
     X = []
     Y = []
-    polyID = line[1]
+    polyID = line[0]
     allCoords = line[1][9:-2]
     coords = allCoords.split(',')
     for coord in coords:
