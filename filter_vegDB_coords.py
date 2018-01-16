@@ -23,6 +23,11 @@ for line in trees:
 for line in raw_polys:
     if line not in polys:
         polys.append(line)
+    
+# the indice of the first coordinates in the polygon column
+# this is necessary because of a weird bug in which this indice is different
+# depending on your computer    
+indice = polys[0][1].find('(') + 2
 
 # extract the coordinates from the plot string
 plots = []
@@ -30,7 +35,7 @@ for line in polys:
     X = []
     Y = []
     polyID = line[0]
-    allCoords = line[1][9:-2]
+    allCoords = line[1][indice:-2]
     coords = allCoords.split(',')
     for coord in coords:
         x, y = coord.split(' ')
