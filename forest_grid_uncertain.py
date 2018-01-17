@@ -26,6 +26,7 @@ with open(filename) as f:
             x, y = coord.split(' ')
             X.append(x)
             Y.append(y)
+<<<<<<< HEAD
         plots_n.append([polyID, int(min(X)), int(min(Y))+u, int(min(X)), int(min(Y))+u])
         plots_e.append([polyID, int(min(X))+u, int(min(Y)), int(min(X))+u, int(min(Y))])
         plots_s.append([polyID, int(min(X)), int(min(Y))-u, int(min(X)), int(min(Y))-u])
@@ -35,6 +36,36 @@ with open(filename) as f:
         plots_sw.append([polyID, int(min(X))-u, int(min(Y))-u, int(min(X))-u, int(min(Y))-u])
         plots_se.append([polyID, int(min(X))+u, int(min(Y))-u, int(min(X))+u, int(min(Y))-u])
         plots_alldirections.append([polyID, int(min(X))-u, int(min(Y))-u, int(min(X))+u, int(min(Y))+u])
+=======
+        plots_n.append([polyID, int(min(X)), int(min(Y)) +
+                        u, int(min(X)), int(min(Y)) + u])
+        plots_e.append([polyID, int(min(X)) + u, int(min(Y)),
+                        int(min(X)) + u, int(min(Y))])
+        plots_s.append([polyID, int(min(X)), int(min(Y)) -
+                        u, int(min(X)), int(min(Y)) - u])
+        plots_w.append([polyID, int(min(X)) - u, int(min(Y)),
+                        int(min(X)) - u, int(min(Y))])
+        plots_nw.append([polyID,
+                         int(min(X)) - u,
+                         int(min(Y)) + u,
+                         int(min(X)) - u,
+                         int(min(Y)) + u])
+        plots_ne.append([polyID,
+                         int(min(X)) + u,
+                         int(min(Y)) + u,
+                         int(min(X)) + u,
+                         int(min(Y)) + u])
+        plots_sw.append([polyID,
+                         int(min(X)) - u,
+                         int(min(Y)) - u,
+                         int(min(X)) - u,
+                         int(min(Y)) - u])
+        plots_se.append([polyID,
+                         int(min(X)) + u,
+                         int(min(Y)) - u,
+                         int(min(X)) + u,
+                         int(min(Y)) - u])
+>>>>>>> 0421b1ce2f59fc7a1edd3bf35c7bc1c1901aeb6a
 
 with open('ID_uncertain_forest_north.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
@@ -44,7 +75,7 @@ with open('ID_uncertain_forest_north.csv', 'a') as result_file:
             stringLine = stringLine + str(value)
             if value != line[-1]:
                 stringLine = stringLine + ' '
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine + '\n')
 
 with open('ID_uncertain_forest_east.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
@@ -54,7 +85,7 @@ with open('ID_uncertain_forest_east.csv', 'a') as result_file:
             stringLine = stringLine + str(value)
             if value != line[-1]:
                 stringLine = stringLine + ' '
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine + '\n')
 
 with open('ID_uncertain_forest_south.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
@@ -64,7 +95,7 @@ with open('ID_uncertain_forest_south.csv', 'a') as result_file:
             stringLine = stringLine + str(value)
             if value != line[-1]:
                 stringLine = stringLine + ' '
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine + '\n')
 
 with open('ID_uncertain_forest_west.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
@@ -74,7 +105,7 @@ with open('ID_uncertain_forest_west.csv', 'a') as result_file:
             stringLine = stringLine + str(value)
             if value != line[-1]:
                 stringLine = stringLine + ' '
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine + '\n')
 
 with open('ID_uncertain_forest_northwest.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
@@ -84,7 +115,7 @@ with open('ID_uncertain_forest_northwest.csv', 'a') as result_file:
             stringLine = stringLine + str(value)
             if value != line[-1]:
                 stringLine = stringLine + ' '
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine + '\n')
 
 with open('ID_uncertain_forest_northeast.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
@@ -94,7 +125,7 @@ with open('ID_uncertain_forest_northeast.csv', 'a') as result_file:
             stringLine = stringLine + str(value)
             if value != line[-1]:
                 stringLine = stringLine + ' '
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine + '\n')
 
 with open('ID_uncertain_forest_southwest.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
@@ -104,7 +135,7 @@ with open('ID_uncertain_forest_southwest.csv', 'a') as result_file:
             stringLine = stringLine + str(value)
             if value != line[-1]:
                 stringLine = stringLine + ' '
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine + '\n')
 
 with open('ID_uncertain_forest_southeast.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
@@ -114,7 +145,7 @@ with open('ID_uncertain_forest_southeast.csv', 'a') as result_file:
             stringLine = stringLine + str(value)
             if value != line[-1]:
                 stringLine = stringLine + ' '
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine+ '\n')
 
 with open('ID_uncertain_forest_alldirections.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
@@ -124,4 +155,4 @@ with open('ID_uncertain_forest_alldirections.csv', 'a') as result_file:
             stringLine = stringLine + str(value)
             if value != line[-1]:
                 stringLine = stringLine + ' '
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine+ '\n')
