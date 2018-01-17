@@ -23,12 +23,16 @@ with open(filename1) as f1:
             latindict = {}
             for line in f2:
                 latindict[line[1]] = line[7]
-            next(f1)
             for line in f1:
-                latinname = latindict[line[1]]
-                line.append(latinname)
+                if line[0] == 'index':
+                    line.append('latinname')
+                else:
+                    latinname = latindict[line[1]]
+                    line.append(latinname)
                 outputline = ''
                 for item in line:
+                    if line[0] == 'index':
+                        print(item)
                     outputline = outputline + item
                     if item != line[-1]:
                         outputline = outputline + ';'
