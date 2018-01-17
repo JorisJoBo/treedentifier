@@ -20,6 +20,10 @@ When done, you can test your code with the following command:
 ```
 pycodestyle --show-source --show-pep8 ./
 ```
+If you want, you can let autopep8 fix your issues with the following command:
+```
+autopep8 --in-place --aggressive --aggressive -r ./
+```
 
 ## Contributors
 The core contributors are:
