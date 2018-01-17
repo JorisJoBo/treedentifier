@@ -16,6 +16,11 @@ To install the required packages, just execute:
 pip install -r python-requirements.txt
 ```
 
+To process the LAZ files in which most LiDAR datasets are formatted, you can
+use LAStools. You can download LAStools [here](https://rapidlasso.com/lastools/).
+Please note that LAStools is not free. You can use LAStools without paying but it will
+distort your data and insert black diagonals in LAScanopy.
+
 ### Datasets
 After that, you'll need a vegetation dataset of your area, as well as a filtered
 and a unfiltered LiDAR dataset. We used the [Dutch Vegetation Database](https://www.gbif.org/dataset/740df67d-5663-41a2-9d12-33ec33876c47)
@@ -25,12 +30,12 @@ and [unfiltered AHN2 data](http://geodata.nationaalgeoregister.nl/ahn2/atom/ahn2
 ### Processing data
 To be able to use this data in our algorithm, we need to do some preprocessing first.
 
-#### Preparing the vegetation Datasets
+#### Preparing the vegetation datasets
 The vegetation dataset contains a lot of different plants. Since we are only
 interested in trees, we need to remove all non-trees. In the file treespecies,
 you can find a list of trees extracted from the Dutch Vegetation Database.
 
-To extract all trees from the vegetation dataset, you can run forest-filter.py.
+To extract all trees from the vegetation dataset, you can run 'forest-filter.py'.
 ```
 python forest-filter.py
 ```
@@ -50,7 +55,7 @@ After that, you can run 'coordinate-filter.py' to extract the coordinates of the
 ```
 python coordinate-filter.py dominant_trees.csv
 ```
-Please note: it is necessary to provide the dominant_trees csv file as an argument.
+Please note: it is necessary to provide the 'dominant_trees.csv' file as an argument.
 
 ## Contributing
 ### Testing
