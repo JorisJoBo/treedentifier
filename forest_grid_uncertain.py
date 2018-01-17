@@ -10,12 +10,15 @@ plots_nw = []
 plots_ne = []
 plots_sw = []
 plots_se = []
+plots_alldirections = []
 
 with open(filename) as f:
     convertedf = csv.reader(f, delimiter=';')
+    # extract the coordinates from the plot string
     for line in convertedf:
         X = []
         Y = []
+        # the uncertainty in meters for this line
         u = int(line[4])
         polyID = line[1]
         indice = line[5].find('(') + 2
@@ -25,6 +28,8 @@ with open(filename) as f:
             x, y = coord.split(' ')
             X.append(x)
             Y.append(y)
+        # adds the uncertainty in order to get the coordinates for when the
+        # coordinates are incorrect and are actually in that direction
         plots_n.append([polyID, int(min(X)), int(min(Y)) +
                         u, int(min(X)), int(min(Y)) + u])
         plots_e.append([polyID, int(min(X)) + u, int(min(Y)),
@@ -53,7 +58,13 @@ with open(filename) as f:
                          int(min(Y)) - u,
                          int(min(X)) + u,
                          int(min(Y)) - u])
+        plots_alldirections.append([polyID,
+                                    int(min(X)) - u,
+                                    int(min(Y)) - u,
+                                    int(min(X)) + u,
+                                    int(min(Y)) + u])
 
+# creates 9 files, for each uncertainty direction one
 with open('ID_uncertain_forest_north.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
     for line in plots_n:
@@ -127,6 +138,16 @@ with open('ID_uncertain_forest_southwest.csv', 'a') as result_file:
 with open('ID_uncertain_forest_southeast.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
     for line in plots_se:
+        stringLine = ''
+        for value in line:
+            stringLine = stringLine + str(value)
+            if value != line[-1]:
+                stringLine = stringLine + ' '
+        result_file.write(stringLine + '\n')
+
+with open('ID_uncertain_forest_alldirections.csv', 'a') as result_file:
+    result_file.write("polygonID min_x min_y max_x max_y\n")
+    for line in plots_alldirections:
         stringLine = ''
         for value in line:
             stringLine = stringLine + str(value)
