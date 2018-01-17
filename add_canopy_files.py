@@ -1,14 +1,21 @@
 '''
  add_canopy_files.py
 
- adds together all csv files generated from lascanopy
- the directory with csv files that have to be combined has to be
+ usage: add_canopy_files.py input_directory output.csv
+
+ Adds together all csv files generated from lascanopy.
+ The directory with csv files that have to be combined has to be
  present in the same directory as this file.
 '''
 import os
+from sys import argv
 
-dirname = "canopyfiles"
-outputfile = "combined_canopy.csv"
+dirname = argv[1]
+try:
+    outputfile = argv[2]
+except:
+    print("no output file given, output saved to 'combined_canopy.csv'")
+    outputfile="combined_canopy.csv"
 
 lines = []
 header = None
