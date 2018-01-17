@@ -4,7 +4,7 @@
  usage: add_canopy_files.py input_directory output.csv
 
  Adds together all csv files generated from lascanopy.
- The directory with csv files that have to be combined has to be
+ The map containing the csv files that have to be combined has to be
  present in the same directory as this file.
 '''
 import os
