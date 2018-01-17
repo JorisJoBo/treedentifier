@@ -3,7 +3,7 @@
 
 # Treedentifier
 This project will be about an AI solution which will be capable of recognizing
-tree species. The solution will learn what the characteristics of a specific specie
+tree species. The solution will learn what the characteristics of a specific species
 based on training data that was provided earlier on. We will use LIDAR data of the Netherlands
 to train our algorithm.
 
