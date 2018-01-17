@@ -22,7 +22,7 @@ for line in training:
     Xt.append(line[7:-2])
     Yt.append(line[-1])
 clf = tree.DecisionTreeClassifier()
-#min_samples_split, min_samples_leaf
+# min_samples_split, min_samples_leaf
 clf = clf.fit(Xt, Yt)
 
 Xv = []
@@ -32,9 +32,9 @@ for line in validation:
     Yv.append(line[-1])
 
 dot_data = tree.export_graphviz(clf, out_file=None,
-                         class_names=Yt, feature_names=features[7:-2],
-                         filled=True, rounded=True,
-                         special_characters=True)
+                                class_names=Yt, feature_names=features[7:-2],
+                                filled=True, rounded=True,
+                                special_characters=True)
 graph = graphviz.Source(dot_data)
 graph.render('tree', view=True)
 

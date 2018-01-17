@@ -14,8 +14,8 @@ output_file = sys.argv[2]
 list = []
 
 with open(filename, 'r') as f:
-    for i, line in enumerate(f,0):
-        if i >0:
+    for i, line in enumerate(f, 0):
+        if i > 0:
             species = line.split(';')[-1].rstrip('\n')
 
             if species not in list:
@@ -27,7 +27,8 @@ with open(output_file, 'w') as f2:
         for line in f:
             species = line.split(';')[-1].rstrip('\n')
             if species in list:
-                write_str = line.rstrip('\n') + ';' +str(list.index(species)) + '\n'
+                write_str = line.rstrip('\n') + ';' + \
+                    str(list.index(species)) + '\n'
             else:
                 write_str = line.rstrip('\n') + '; species_index' + '\n'
             f2.write(write_str)
