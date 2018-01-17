@@ -3,7 +3,7 @@ Connect the input and labels and print to file.
 
 Call from commandline with the names of the files that are to be combined
 as arguments. The first file should be the inputs and the second file
-the labels.
+the labels (which is dominant_trees.csv).
 Returns a .csv file containing the data required for machinelearning.
 """
 
@@ -21,8 +21,10 @@ with open(filename1) as f1:
             f1 = csv.reader(f1, delimiter=',')
             f2 = csv.reader(f2, delimiter=';')
             latindict = {}
+            # uses dominant_trees to find the name, and put it in a dictionary
             for line in f2:
                 latindict[line[1]] = line[7]
+            # use the dictionary to find the treename and add it to the line
             for line in f1:
                 if line[0] == 'index':
                     line.append('latinname')
@@ -31,8 +33,6 @@ with open(filename1) as f1:
                     line.append(latinname)
                 outputline = ''
                 for item in line:
-                    if line[0] == 'index':
-                        print(item)
                     outputline = outputline + item
                     if item != line[-1]:
                         outputline = outputline + ';'
