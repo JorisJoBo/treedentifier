@@ -31,4 +31,5 @@ for file in os.listdir(dirname):
 with open(outputfile, 'w') as f:
     f.write(header)
     for line in lines:
-        f.write(line)
+        if "-" not in line:
+            f.write(line)
