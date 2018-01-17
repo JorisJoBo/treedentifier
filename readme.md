@@ -20,7 +20,7 @@ When done, you can test your code with the following command:
 ```
 pycodestyle --show-source --show-pep8 ./
 ```
-If you want, you can let autopep8 fix your issues with the following command:
+If you want, you can let [autopep8](https://github.com/hhatto/autopep8) fix your issues with the following command:
 ```
 autopep8 --in-place --aggressive --aggressive -r ./
 ```
