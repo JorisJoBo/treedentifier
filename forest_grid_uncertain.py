@@ -14,9 +14,11 @@ plots_alldirections = []
 
 with open(filename) as f:
     convertedf = csv.reader(f, delimiter=';')
+    # extract the coordinates from the plot string
     for line in convertedf:
         X = []
         Y = []
+        # the uncertainty in meters for this line
         u = int(line[4])
         polyID = line[1]
         indice = line[5].find('(') + 2
@@ -26,36 +28,43 @@ with open(filename) as f:
             x, y = coord.split(' ')
             X.append(x)
             Y.append(y)
+        # adds the uncertainty in order to get the coordinates for when the
+        # coordinates are incorrect and are actually in that direction
+        plots_n.append([polyID, int(min(X)), int(min(Y)) +
+                        u, int(min(X)), int(min(Y)) + u])
+        plots_e.append([polyID, int(min(X)) + u, int(min(Y)),
+                        int(min(X)) + u, int(min(Y))])
+        plots_s.append([polyID, int(min(X)), int(min(Y)) -
+                        u, int(min(X)), int(min(Y)) - u])
+        plots_w.append([polyID, int(min(X)) - u, int(min(Y)),
+                        int(min(X)) - u, int(min(Y))])
+        plots_nw.append([polyID,
+                         int(min(X)) - u,
+                         int(min(Y)) + u,
+                         int(min(X)) - u,
+                         int(min(Y)) + u])
+        plots_ne.append([polyID,
+                         int(min(X)) + u,
+                         int(min(Y)) + u,
+                         int(min(X)) + u,
+                         int(min(Y)) + u])
+        plots_sw.append([polyID,
+                         int(min(X)) - u,
+                         int(min(Y)) - u,
+                         int(min(X)) - u,
+                         int(min(Y)) - u])
+        plots_se.append([polyID,
+                         int(min(X)) + u,
+                         int(min(Y)) - u,
+                         int(min(X)) + u,
+                         int(min(Y)) - u])
+        plots_alldirections.append([polyID,
+                                    int(min(X)) - u,
+                                    int(min(Y)) - u,
+                                    int(min(X)) + u,
+                                    int(min(Y)) + u])
 
-    plots_n.append([polyID, int(min(X)), int(min(Y)) +
-                    u, int(min(X)), int(min(Y)) + u])
-    plots_e.append([polyID, int(min(X)) + u, int(min(Y)),
-                    int(min(X)) + u, int(min(Y))])
-    plots_s.append([polyID, int(min(X)), int(min(Y)) -
-                    u, int(min(X)), int(min(Y)) - u])
-    plots_w.append([polyID, int(min(X)) - u, int(min(Y)),
-                    int(min(X)) - u, int(min(Y))])
-    plots_nw.append([polyID,
-                     int(min(X)) - u,
-                     int(min(Y)) + u,
-                     int(min(X)) - u,
-                     int(min(Y)) + u])
-    plots_ne.append([polyID,
-                     int(min(X)) + u,
-                     int(min(Y)) + u,
-                     int(min(X)) + u,
-                     int(min(Y)) + u])
-    plots_sw.append([polyID,
-                     int(min(X)) - u,
-                     int(min(Y)) - u,
-                     int(min(X)) - u,
-                     int(min(Y)) - u])
-    plots_se.append([polyID,
-                     int(min(X)) + u,
-                     int(min(Y)) - u,
-                     int(min(X)) + u,
-                     int(min(Y)) - u])
-
+# creates 9 files, for each uncertainty direction one
 with open('ID_uncertain_forest_north.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
     for line in plots_n:
