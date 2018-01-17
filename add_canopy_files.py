@@ -13,9 +13,9 @@ from sys import argv
 dirname = argv[1]
 try:
     outputfile = argv[2]
-except:
+except BaseException:
     print("no output file given, output saved to 'combined_canopy.csv'")
-    outputfile="combined_canopy.csv"
+    outputfile = "combined_canopy.csv"
 
 lines = []
 header = None

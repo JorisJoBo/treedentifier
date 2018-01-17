@@ -47,4 +47,4 @@ with open('ID_forest_grid_coords.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
     for line in plots:
         stringLine = ' '.join(line)
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine + '\n')

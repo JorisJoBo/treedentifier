@@ -48,10 +48,10 @@ with open('ID_forest_grid_coords.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
     for line in plots:
         stringLine = ' '.join(line)
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine + '\n')
 
 # write coordinates to file in LAStools interpretable style
 with open('forest_grid_coords.csv', 'a') as result_file:
     for line in plots:
         stringLine = ' '.join(line[1:])
-        result_file.write(stringLine+'\n')
+        result_file.write(stringLine + '\n')
