@@ -10,6 +10,7 @@ plots_nw = []
 plots_ne = []
 plots_sw = []
 plots_se = []
+plots_alldirections = []
 
 with open(filename) as f:
     convertedf = csv.reader(f, delimiter=';')
@@ -33,6 +34,7 @@ with open(filename) as f:
         plots_ne.append([polyID, int(min(X))+u, int(min(Y))+u, int(min(X))+u, int(min(Y))+u])
         plots_sw.append([polyID, int(min(X))-u, int(min(Y))-u, int(min(X))-u, int(min(Y))-u])
         plots_se.append([polyID, int(min(X))+u, int(min(Y))-u, int(min(X))+u, int(min(Y))-u])
+        plots_alldirections.append([polyID, int(min(X))-u, int(min(Y))-u, int(min(X))+u, int(min(Y))+u])
 
 with open('ID_uncertain_forest_north.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
@@ -107,6 +109,16 @@ with open('ID_uncertain_forest_southwest.csv', 'a') as result_file:
 with open('ID_uncertain_forest_southeast.csv', 'a') as result_file:
     result_file.write("polygonID min_x min_y max_x max_y\n")
     for line in plots_se:
+        stringLine = ''
+        for value in line:
+            stringLine = stringLine + str(value)
+            if value != line[-1]:
+                stringLine = stringLine + ' '
+        result_file.write(stringLine+'\n')
+
+with open('ID_uncertain_forest_alldirections.csv', 'a') as result_file:
+    result_file.write("polygonID min_x min_y max_x max_y\n")
+    for line in plots_alldirections:
         stringLine = ''
         for value in line:
             stringLine = stringLine + str(value)
