@@ -2,7 +2,7 @@
  add_canopy_files.py
 
  adds together all csv files generated from lascanopy
- the directory with csv files that have to be combined_canopy has to be
+ the directory with csv files that have to be combined has to be
  present in the same directory as this file.
 '''
 import os
