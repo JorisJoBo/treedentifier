@@ -3,7 +3,8 @@
 
  usage: add_canopy_files.py input_directory output.csv
 
- Adds together all csv files generated from lascanopy.
+ Adds together all csv files generated from lascanopy and removes lines
+ with missing values.
  The map containing the csv files that have to be combined has to be
  present in the same directory as this file.
 '''
