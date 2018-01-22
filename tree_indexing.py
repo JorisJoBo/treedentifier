@@ -1,13 +1,13 @@
 '''
 tree_indexing.py
 
-usage: tree_indexing inputfile.csv outputfile.csv
+Usage: tree_indexing inputfile.csv outputfile.csv
 
-indexes tree species by giving each species an unique number
+Indexes tree species by giving each species an unique number.
 '''
 import sys
 
-# load data:
+# Get user input:
 filename = sys.argv[1]
 output_file = sys.argv[2]
 
