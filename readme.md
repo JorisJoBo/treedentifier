@@ -23,9 +23,9 @@ distort your data and insert black diagonals in LAScanopy.
 
 ### Datasets
 After that, you'll need a vegetation dataset of your area, as well as a filtered
-and a unfiltered LiDAR dataset. We used the [Dutch Vegetation Database](https://www.gbif.org/dataset/740df67d-5663-41a2-9d12-33ec33876c47)
+and a unfiltered LiDAR dataset. We used a modified version of the [Dutch Vegetation Database](https://www.gbif.org/dataset/740df67d-5663-41a2-9d12-33ec33876c47)
 as our vegetation dataset and as LiDAR data we used [filtered AHN2 data](http://geodata.nationaalgeoregister.nl/ahn2/atom/ahn2_gefilterd.xml)
-and [unfiltered AHN2 data](http://geodata.nationaalgeoregister.nl/ahn2/atom/ahn2_uitgefilterd.xml).
+and [filtered out AHN2 data](http://geodata.nationaalgeoregister.nl/ahn2/atom/ahn2_uitgefilterd.xml).
 
 ### Processing data
 To be able to use this data in our algorithm, we need to do some preprocessing first.
