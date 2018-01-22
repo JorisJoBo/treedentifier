@@ -8,7 +8,7 @@ if not exist %outputfolder% (
 )
 
 echo Stage 1: running LASmerge... (this may take a while)
-for %%a in (%filelist%) do ( 
+for %%a in (%filelist%) do (
 	if exist g%%a.laz (
 		if exist u%%a.laz (
 			echo  - Merging %%a...
@@ -18,43 +18,30 @@ for %%a in (%filelist%) do (
 )
 
 echo Stage 2: running LASindex... (this may take a while)
-for %%a in (%outputfolder%\*.laz) do ( 
+for %%a in (%outputfolder%\*.laz) do (
 	echo  - Indexing %%a...
 	lasindex -i %%a
 )
 
 echo Stage 3: running Tiling (this may take a while)
 mkdir %outputfolder%\tiling
-for %%a in (%outputfolder%\*.laz) do ( 
+for %%a in (%outputfolder%\*.laz) do (
 	echo  - Running on %%~na...
 	lastile -i %%a -o %outputfolder%\tiling\%%~na
 )
 
 echo Stage 4: running LASground_new (this may take a while)
 mkdir %outputfolder%\ground
-for %%a in (%outputfolder%\tiling\*.las) do ( 
+for %%a in (%outputfolder%\tiling\*.las) do (
 	echo  - Running on %%~nxa...
 	lasground_new -i %outputfolder%\tiling\%%~nxa -o %outputfolder%\ground\%%~na.laz -ignore_class 7
 )
 
 echo Stage 5: running LASheight (this may take a while)
 mkdir %outputfolder%\height
-for %%a in (%outputfolder%\ground\*.laz) do ( 
+for %%a in (%outputfolder%\ground\*.laz) do (
 	echo  - Running on %%~nxa...
 	lasheight -i %outputfolder%\ground\%%~nxa -o %outputfolder%\height\%%~na.laz
-)
-
-echo Stage 6: running LASclassify (this may take a while)
-mkdir %outputfolder%\classify
-for %%a in (%outputfolder%\height\*.laz) do ( 
-	echo  - Running on %%~nxa...
-	lasclassify -i %outputfolder%\height\%%~nxa -o %outputfolder%\classify\%%~na.laz
-)
-
-echo Stage 7: running LASindex... (this may take a while)
-for %%a in (%outputfolder%\classify\*.laz) do ( 
-	echo  - Indexing %%~nxa...
-	lasindex -i %outputfolder%\classify\%%~nxa
 )
 
 echo Conversion finished
