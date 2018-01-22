@@ -57,6 +57,19 @@ python coordinate-filter.py dominant_trees.csv
 ```
 Please note: it is necessary to provide the 'dominant_trees.csv' file as an argument.
 
+Now you can run all LAStools you want. We set up a default batch script which will
+work for anyone. Just run the batch file and you should be fine. You'll need the output
+of the 'coordinate-filter.py' step, for the last LAStools step 'LAScanopy'.
+
+When done with LAStools run 'data-connector.py' to combine the dominant trees
+and the result matrix of LAScanopy.
+```
+python data-connector.py combined_canopy.csv dominant_trees.csv
+```
+
+Now you're done with the setup. You now should be able to run the main algorithm
+without any problems. 
+
 ## Contributing
 ### Testing
 You have to test your code first before pushing. Pushing while failing to do so, may result in failed builds.
