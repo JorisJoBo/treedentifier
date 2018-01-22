@@ -1,7 +1,7 @@
 import csv
 
 with open("learning_data.csv") as f1:
-    with open("common_learning_data.cvs", 'w') as f2:
+    with open("common_learning_data.csv", 'w') as f2:
         lines = csv.reader(f1, delimiter=";")
         data = []
         for line in lines:
