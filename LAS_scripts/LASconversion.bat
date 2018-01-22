@@ -1,5 +1,5 @@
 @echo off
-set filelist=26gz1 26gn1 32fz2 33az1 33az2 32hn2 33cn1 33cn2 32hz2 33cz1 33cz2
+set filelist=26gz1 26gn1 32fz2 33az1 33az2 32hn2 33cn1 33cn2 32hz2 33cz1 33cz2 g28cn1 g28cn2 g28cz2
 set outputfolder=LiDAR_data
 
 if not exist %outputfolder% (
