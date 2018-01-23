@@ -8,6 +8,8 @@ with open("learning_data.csv") as f1:
             data.append(line)
         seen = []
         for line1 in data:
+            if line1 == data[0]:
+                f2.write(';'.join(line1) + '\n')
             c = line1[-1]
             if c not in seen:
                 counter = 0
@@ -16,6 +18,6 @@ with open("learning_data.csv") as f1:
                         counter += 1
                 if counter >= 5:
                     seen.append(c)
-                    f2.write(';'.join(line1)+'\n')
+                    f2.write(';'.join(line1) + '\n')
             else:
-                f2.write(';'.join(line1)+'\n')
+                f2.write(';'.join(line1) + '\n')
