@@ -18,7 +18,7 @@ filename2 = sys.argv[2]
 with open(filename1) as f1:
     with open(filename2) as f2:
         with open('learning_data.csv', 'a') as result_file:
-            f1 = csv.reader(f1, delimiter=',')
+            f1 = csv.reader(f1, delimiter=';')
             f2 = csv.reader(f2, delimiter=';')
             latindict = {}
             # uses dominant_trees to find the name, and put it in a dictionary
