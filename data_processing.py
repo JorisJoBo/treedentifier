@@ -50,7 +50,11 @@ with open(outputfile, 'w') as f:
         if "-" not in line2:
             f.write(line)
 
+<<<<<<< HEAD
 with open(outputfile) as f:
+=======
+with open('combined_canopy.csv', 'a') as f:
+>>>>>>> cb6bb98ca6412ddad68ae130aaf5766f3c43992e
     with open('cleaned_canopy.csv', 'a') as result_file:
         f = csv.reader(f, delimiter=',')
         o = []
@@ -75,18 +79,29 @@ with open(outputfile) as f:
                     write = True
                     for i in range(6, len(o[6:])):
                         if not abs(float(o[i]) -
+<<<<<<< HEAD
                                    float(line[i])) <= max(0.2 *
+=======
+                                   float(line[i])) <= max(0.75 *
+>>>>>>> cb6bb98ca6412ddad68ae130aaf5766f3c43992e
                                                           abs(float(o[i])), 2):
                             write = False
                     if write:
                         outputline = ''
                         for item in line:
                             outputline = outputline + item + ','
+<<<<<<< HEAD
 
                         result_file.write(outputline[:-1] + '\n')
 
 with open('cleaned_canopy.csv') as f1:
     with open('dominant_trees.csv') as f2:
+=======
+                        result_file.write(outputline[:-1] + '\n')
+
+with open('cleaned_canopy.csv', 'a') as f1:
+    with open('dominant_trees.csv', 'a') as f2:
+>>>>>>> cb6bb98ca6412ddad68ae130aaf5766f3c43992e
         with open('learning_data.csv', 'a') as result_file:
             f1 = csv.reader(f1, delimiter=',')
             f2 = csv.reader(f2, delimiter=',')
@@ -129,6 +144,7 @@ with open('indexed_learning_data.csv', 'w') as f2:
             else:
                 write_str = line.rstrip('\n') + ', species_index' + '\n'
             f2.write(write_str)
+<<<<<<< HEAD
 
 with open("learning_data.csv") as f1:
     with open("common_learning_data.csv", 'w') as f2:
@@ -151,3 +167,5 @@ with open("learning_data.csv") as f1:
                     f2.write(','.join(line1) + '\n')
             else:
                 f2.write(','.join(line1) + '\n')
+=======
+>>>>>>> cb6bb98ca6412ddad68ae130aaf5766f3c43992e

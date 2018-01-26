@@ -30,7 +30,11 @@ with open('forest_filter_result.csv') as f:
                     for data in dominant_tree:
                         rebuildline = rebuildline + data
                         if data != dominant_tree[-1]:
+<<<<<<< HEAD
                             rebuildline = rebuildline + ','
+=======
+                            rebuildline = rebuildline + ';'
+>>>>>>> cb6bb98ca6412ddad68ae130aaf5766f3c43992e
                     result_file.write(rebuildline + '\n')
                 current_polygon = line[1]
                 dominant_tree_ratio = 0
@@ -49,7 +53,11 @@ with open('forest_filter_result.csv') as f:
 
 growing_plots = []
 
+<<<<<<< HEAD
 with open('dominant_trees.csv') as f:
+=======
+with open('dominant_trees.csv', 'a') as f:
+>>>>>>> cb6bb98ca6412ddad68ae130aaf5766f3c43992e
     convertedf = csv.reader(f, delimiter=',')
     # extract the coordinates from the plot string
     for line in convertedf:
