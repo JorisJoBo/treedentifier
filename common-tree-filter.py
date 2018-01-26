@@ -16,7 +16,7 @@ with open("learning_data.csv") as f1:
                 for line2 in data:
                     if line2[-1] == c:
                         counter += 1
-                if counter >= 5:
+                if counter >= 50:
                     seen.append(c)
                     f2.write(';'.join(line1) + '\n')
             else:
