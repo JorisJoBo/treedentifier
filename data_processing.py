@@ -93,7 +93,7 @@ with open('cleaned_canopy.csv') as f1:
             latindict = {}
             # uses dominant_trees to find the name, and put it in a dictionary
             for line in f2:
-                latindict[line[1]] = line[7]
+                latindict[line[1]] = line[-1]
             # use the dictionary to find the treename and add it to the line
             for line in f1:
                 if line[0] == 'index':
