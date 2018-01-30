@@ -52,7 +52,7 @@ with open(outputfile, 'w') as f:
 
 with open(outputfile) as f:
     with open('cleaned_canopy.csv', 'a') as result_file:
-        f = csv.reader(f, delimiter=',')
+        f = csv.reader(f, delimiter=';')
         o = []
         polygonID = 0
         for line in f:
@@ -117,7 +117,6 @@ with open('learning_data.csv', 'r') as f:
 
             if species not in lis:
                 lis.append(species)
-f.close()
 
 with open('indexed_learning_data.csv', 'w') as f2:
     with open('learning_data.csv', 'r') as f:
@@ -151,3 +150,23 @@ with open("learning_data.csv") as f1:
                     f2.write(','.join(line1) + '\n')
             else:
                 f2.write(','.join(line1) + '\n')
+
+with open("common_learning_data.csv") as f:
+    with open("processed_learning_data.csv", 'w') as result_file:
+        f = csv.reader(f, delimiter=",")
+        data = []
+        for line in f:
+            data.append(line)
+        result_file.write(','.join(data[0]) + '\n')
+        for line in data[1:]:
+            newline = ''
+            count = 0
+            locations = [13, 14, 15, 16, 17, 18]
+            for element in line:
+                if count in locations:
+                    newline = newline + \
+                        str(float(element) / float(line[7])) + ','
+                else:
+                    newline = newline + str(element) + ','
+                count += 1
+            result_file.write(newline[:-1] + '\n')
