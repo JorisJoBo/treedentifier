@@ -52,7 +52,7 @@ with open(outputfile, 'w') as f:
 
 with open(outputfile) as f:
     with open('cleaned_canopy.csv', 'a') as result_file:
-        f = csv.reader(f, delimiter=';')
+        f = csv.reader(f, delimiter=',')
         o = []
         polygonID = 0
         for line in f:
