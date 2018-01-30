@@ -152,7 +152,7 @@ with open("learning_data.csv") as f1:
                 f2.write(','.join(line1) + '\n')
 
 with open("common_learning_data.csv") as f:
-    with open("processed_learning_data.csv", 'w') as result_file:
+    with open("relative_learning_data.csv", 'w') as result_file:
         f = csv.reader(f, delimiter=",")
         data = []
         for line in f:
