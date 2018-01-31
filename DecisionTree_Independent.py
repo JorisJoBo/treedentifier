@@ -60,7 +60,7 @@ def decisiontree(data):
 
     for line in validation:
         if line[-1] not in classes:
-            return decisiontree(data, min_split, min_leaf, weight)
+            return decisiontree(data)
         Xv.append(line[1:-1])
         Yv.append(line[-1])
 

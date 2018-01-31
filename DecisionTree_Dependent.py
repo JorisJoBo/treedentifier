@@ -48,6 +48,8 @@ def decisiontree(data):
     clf = clf.fit(Xt, Yt)
 
     for line in validation:
+        if line[-1] not in classes:
+            return decisiontree(data)
         Xv.append(line[0:-1])
         Yv.append(line[-1])
     return clf, Xt, Yt, Xv, Yv
