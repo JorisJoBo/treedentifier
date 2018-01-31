@@ -1,2 +1,11 @@
 pycodestyle
 autopep8
+os
+sys
+csv
+sklearn
+numpy
+graphviz
+matplotlib.pylab
+graphviz
+operator
