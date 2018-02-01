@@ -66,7 +66,7 @@ clf, Xt, Yt, Xv, Yv = decisiontree(data)
 # Sorts the classes alphabetically, which makes them work as class_names
 classes.sort()
 
-# This creates an image of the decisiontree and exports it as a PDF
+# This creates an image of the decisiontree and exports it as a PDF.
 dot_data = tree.export_graphviz(clf,
                                 out_file=None,
                                 class_names=classes,

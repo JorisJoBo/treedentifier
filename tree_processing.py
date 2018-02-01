@@ -68,7 +68,8 @@ with open('dominant_trees.csv') as f:
             Y.append(y)
         size = int(max(X)) - int(min(X))
 
-        # Adds 5x5 polygons with the original in the center as polygon coordinates.
+        # Adds 5x5 polygons with the original in the center as polygon
+        # coordinates.
         types = [0, -size, size, -size * 2, size * 2]
         typecombinations = []
         for xtype in types:

@@ -97,10 +97,10 @@ with open('cleaned_canopy.csv') as f1:
             f1 = csv.reader(f1, delimiter=',')
             f2 = csv.reader(f2, delimiter=',')
             latindict = {}
-            # uses dominant_trees to find the name, and put it in a dictionary
+            # Uses dominant_trees to find the name, and put it in a dictionary.
             for line in f2:
                 latindict[line[1]] = line[-1]
-            # use the dictionary to find the treename and add it to the line
+            # Use the dictionary to find the treename and add it to the line.
             for line in f1:
                 if line[0] == 'index':
                     line.append('latinname')
@@ -124,7 +124,6 @@ with open('learning_data.csv', 'r') as f:
 
             if species not in lis:
                 lis.append(species)
-
 with open('indexed_learning_data.csv', 'w') as f2:
     with open('learning_data.csv', 'r') as f:
         for line in f:
@@ -136,6 +135,8 @@ with open('indexed_learning_data.csv', 'w') as f2:
                 write_str = line.rstrip('\n') + ', species_index' + '\n'
             f2.write(write_str)
 
+# For every tree species, add it to the csv file if that species has at least
+# 50 rows of data in the dataset.
 with open("indexed_learning_data.csv") as f1:
     with open("common_learning_data.csv", 'w') as f2:
         lines = csv.reader(f1, delimiter=",")
@@ -158,7 +159,8 @@ with open("indexed_learning_data.csv") as f1:
             else:
                 f2.write(','.join(line1) + '\n')
 
-
+# Transform the P05 to P90 variables to a percentage of the max, to remove
+# the differences between smaller trees of the same species.
 with open("common_learning_data.csv") as f:
     with open("relative_learning_data.csv", 'w') as result_file:
         f = csv.reader(f, delimiter=",")
