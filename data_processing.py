@@ -17,6 +17,7 @@ from sys import argv
 import sys
 import csv
 
+# Aquire source and destination from commandline.
 dirname = argv[1]
 try:
     outputfile = argv[2]
@@ -24,6 +25,7 @@ except BaseException:
     print("no output file given, output saved to 'combined_canopy.csv'")
     outputfile = "combined_canopy.csv"
 
+# Extract and store single header and every other line from all files.
 lines = []
 header = None
 if dirname.endswith('.csv'):
@@ -43,6 +45,7 @@ else:
                     else:
                         header = line
 
+# Remove NULL lines and write to output file.
 with open(outputfile, 'w') as f:
     f.write(header)
     for line in lines:
@@ -50,6 +53,8 @@ with open(outputfile, 'w') as f:
         if "-" not in line2:
             f.write(line)
 
+# Remove any polygons generated with growing forrest who's values deviate too
+# much from the original polygon.
 with open(outputfile) as f:
     with open('cleaned_canopy.csv', 'a') as result_file:
         f = csv.reader(f, delimiter=',')
@@ -85,6 +90,7 @@ with open(outputfile) as f:
 
                         result_file.write(outputline[:-1] + '\n')
 
+# Combine cleaned LAScanopy data with corresponding vegetation database labels.
 with open('cleaned_canopy.csv') as f1:
     with open('dominant_trees.csv') as f2:
         with open('learning_data.csv', 'a') as result_file:
@@ -108,8 +114,9 @@ with open('cleaned_canopy.csv') as f1:
                         outputline = outputline + ','
                 result_file.write(outputline + '\n')
 
+# Adds numerical value to each datapoint to indicate species, meant for use
+# with SVM or Neural Network
 lis = []
-
 with open('learning_data.csv', 'r') as f:
     for i, line in enumerate(f, 0):
         if i > 0:
@@ -129,7 +136,7 @@ with open('indexed_learning_data.csv', 'w') as f2:
                 write_str = line.rstrip('\n') + ', species_index' + '\n'
             f2.write(write_str)
 
-with open("learning_data.csv") as f1:
+with open("indexed_learning_data.csv") as f1:
     with open("common_learning_data.csv", 'w') as f2:
         lines = csv.reader(f1, delimiter=",")
         data = []
@@ -150,6 +157,7 @@ with open("learning_data.csv") as f1:
                     f2.write(','.join(line1) + '\n')
             else:
                 f2.write(','.join(line1) + '\n')
+
 
 with open("common_learning_data.csv") as f:
     with open("relative_learning_data.csv", 'w') as result_file:
