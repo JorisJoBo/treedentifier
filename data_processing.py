@@ -1,8 +1,8 @@
 '''
- add_canopy_files.py
+ data_processing.py
 
- usage for map: add_canopy_files.py input_directory output.csv
- usage for single file: add_canopy_files.py input.csv output.csv
+ usage for map: data_processing.py input_directory output.csv
+ usage for single file: data_processing.py input.csv output.csv
 
  Adds together all csv files generated from lascanopy and removes lines
  with missing values. Can also be used to remove lines with missing values
