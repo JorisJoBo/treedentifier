@@ -26,7 +26,6 @@ Isothecium alopecuroides
 Juglans regia
 Larix decidua
 Larix kaempferi
-Malus sylvestris
 Picea abies
 Picea pungens
 Picea sitchensis
@@ -34,6 +33,7 @@ Pinus contorta
 Pinus nigra
 Pinus pinaster
 Pinus strobus
+Pinus sylvestris
 Platanus hispanica
 Populus alba
 Populus balsamifera

@@ -1,5 +1,5 @@
 treespecies = []
-with open('treespecies') as b:
+with open('treespecies.txt') as b:
     for species in b:
         treespecies.append(species)
 

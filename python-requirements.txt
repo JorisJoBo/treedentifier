@@ -1,1 +1,7 @@
 pycodestyle
+autopep8
+sklearn
+numpy
+graphviz
+matplotlib
+graphviz
